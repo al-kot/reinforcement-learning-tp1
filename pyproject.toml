@@ -1,21 +1,33 @@
 [tool.poetry]
-name = "reinforcement-learning-tp1"
+name = "multiarmbandits"
 version = "0.1.0"
-description = ""
-authors = ["Pierre-Louis Guhur <pierre-louis.guhur@laposte.net>"]
+description = "Multi-armed bandits problem implementations"
+authors = ["Aleksei Kotliarov aleksei.kotliarov@epita.fr"]
 readme = "README.md"
-packages = []
+packages = [{ include = "multiarmbandits" }]
 
 [tool.poetry.dependencies]
-python = "^3.11"
-jupyterlab = "^4.0.5"
-pytest = "^7.4.1"
-mypy = "^1.5.1"
-matplotlib = "^3.7.2"
-tqdm = "^4.66.1"
+python = ">=3.9,<3.13"
 numpy = "^1.25.2"
+typer = "^0.9"
+matplotlib = "^3.9"
+uvicorn = { version = "^0.22", optional = true }
 
+[tool.poetry.scripts]
+multiarmbandits = "multiarmbandits.cli:app"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+ruff = "^0.5"
+mypy = "^1.10"
+black = "^24.0"
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
+select = ["E", "F", "I", "B"]
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
